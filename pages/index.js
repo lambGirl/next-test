@@ -45,7 +45,10 @@ const Index = (props) => (
 Index.getInitialProps = async function() {
     const res = await fetch('https://api.tvmaze.com/search/shows?q=batman')
     const data = await res.json()
-
+    /**
+     * 由于是服务端渲染机制
+     * 1. 如果重新刷新页面
+     */
     console.log(`Show data fetched. Count: ${data.length}`)
     //console.log("data",data);
     return {

@@ -10157,6 +10157,11 @@ _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(f
 
         case 5:
           data = _context.sent;
+
+          /**
+           * 由于是服务端渲染机制
+           * 1. 如果重新刷新页面
+           */
           console.log("Show data fetched. Count: ".concat(data.length)); //console.log("data",data);
 
           return _context.abrupt("return", {
@@ -10174,7 +10179,7 @@ _babel_runtime_corejs2_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(f
 
 /***/ }),
 
-/***/ 2:
+/***/ 1:
 /*!*********************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=E%3A%5Cproject%5Cfront-demo%5C2019.1.9%5Cnext%5Cpages%5Cindex.js ***!
   \*********************************************************************************************************************************/
@@ -10197,5 +10202,5 @@ module.exports = dll_5956ada9c6d506907522;
 
 /***/ })
 
-},[[2,"static/runtime/webpack.js"]]]));;
+},[[1,"static/runtime/webpack.js"]]]));;
 //# sourceMappingURL=index.js.map
