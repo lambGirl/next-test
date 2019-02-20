@@ -2,19 +2,61 @@ import Layout from '../components/MyLayout.js'
 import Link from 'next/link'
 //获取请求
 import fetch from 'isomorphic-unfetch'
+import Markdown from 'react-markdown'
+
 const PostLink = (props) => (
     <li>
         <Link href={`/post?title=${props.title}`}>
             <a>{props.title}</a>
         </Link>
+        <style jsx>{`
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+        font-family: "Arial";
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+    `}</style>
     </li>
 )
+
+function getPosts () {
+    return [
+        { id: 'hello-nextjs', title: 'Hello Next.js'},
+        { id: 'learn-nextjs', title: 'Learn Next.js is awesome'},
+        { id: 'deploy-nextjs', title: 'Deploy apps with ZEIT'},
+    ]
+}
 
 const PostNoLink = (props) => (
     <li>
         <Link as={`/p/${props.id}`} href={`/post?title=${props.title}`}>
             <a>{props.title}</a>
         </Link>
+        <style jsx>{`
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+        font-family: "Arial";
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+    `}</style>
     </li>
 )
 
@@ -39,6 +81,60 @@ const Index = (props) => (
                 </li>
             ))}
         </ul>
+        <div className="markdown">
+            <Markdown source={`
+                This is our blog post.
+                Yes. We can have a [link](/link).
+                And we can have a title as well.
+
+                ### This is a title
+
+                And here's the content.
+     `}/>
+        </div>
+
+        <style jsx global>{`
+      h1, a {
+        font-family: "Arial";
+      }
+
+      ul {
+        padding: 0;
+      }
+
+      li {
+        list-style: none;
+        margin: 5px 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: blue;
+      }
+
+      a:hover {
+        opacity: 0.6;
+      }
+
+      .markdown {
+       font-family: 'Arial';
+     }
+
+     .markdown a {
+       text-decoration: none;
+       color: blue;
+     }
+
+     .markdown a:hover {
+       opacity: 0.6;
+     }
+
+     .markdown h3 {
+       margin: 0;
+       padding: 0;
+       text-transform: uppercase;
+     }
+    `}</style>
     </Layout>
 )
 

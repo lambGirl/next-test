@@ -11,7 +11,7 @@ app.prepare()
     //需要自定义后端路由
     server.get('/p/:id', (req, res) => {
         const actualPage = '/post'
-        const queryParams = { title: req.params.id }
+        const queryParams = { id: req.params.id }
         app.render(req, res, actualPage, queryParams)
     })
 
